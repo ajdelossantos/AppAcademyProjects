@@ -8,11 +8,11 @@ class Tile
   end
 
   def is_bomb?
-    @value == '*'
+    @value == '#'
   end
 
   def to_s
-    " #{@value.to_s}" 
+    @face_up ? " #{@value.to_s}" : ' *'
   end
 
 end

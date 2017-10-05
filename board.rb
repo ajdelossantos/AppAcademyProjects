@@ -15,7 +15,7 @@ class Board
     end
     positions.shuffle!
     bombs_number.times do
-      self[positions.pop].value = '*'
+      self[positions.pop].value = '#'
     end
   end
 
