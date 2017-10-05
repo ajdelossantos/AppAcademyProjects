@@ -1,10 +1,13 @@
 require_relative 'tile'
 
 class Board
+  attr_reader :lost
+
   def initialize()
     @grid = Array.new(9) { Array.new(9) { Tile.new(0) } }
     populate_bombs
     populate_numbers
+    @lost = false
   end
 
   def populate_bombs
@@ -60,11 +63,14 @@ class Board
         end
       end
     end
-
-
   end
 
-end
+  def play(pos)
+    @lost = true if self[pos].value == "#"
+  end
 
-b = Board.new
-b.display
+  def game_over?
+    not_bombs = @grid.flatten.select { |tile| !tile.is_bomb? }
+    not_bombs.all? { |tile| tile.face_up } || @lost
+  end
+end

@@ -1,5 +1,6 @@
 class Tile
   attr_accessor :value
+  attr_reader :face_up
 
   def initialize(value)
     @value = value
