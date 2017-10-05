@@ -13,7 +13,11 @@ class Tile
   end
 
   def to_s
-    @face_up ? " #{@value.to_s}" : ' *'
+    @face_up ? " #{@value}" : ' *'
+  end
+
+  def reveal
+    @face_up = true
   end
 
 end

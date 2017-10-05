@@ -52,6 +52,7 @@ class Board
       (0...@grid[0].length).each do |j|
 
         unless self[[i,j]].is_bomb?
+
           adjacent_move =
             [-1, 0, 1].permutation(2).to_a + [[-1, -1], [1, 1]]
 
@@ -67,6 +68,7 @@ class Board
 
   def play(pos)
     @lost = true if self[pos].value == "#"
+    self[pos].reveal
   end
 
   def game_over?
