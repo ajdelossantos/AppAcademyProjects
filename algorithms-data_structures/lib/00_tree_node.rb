@@ -34,7 +34,6 @@ class PolyTreeNode
     @parent.children << self unless node.nil?
   end
 
-# These methods should be one- or two-liners that call #parent=.
 
   def add_child(child_node)
     child_node.parent = self
@@ -45,6 +44,19 @@ class PolyTreeNode
       !self.children.include?(child_node)
 
     child_node.parent = nil
+  end
+
+  # Write a #dfs(target_value) method which takes a value to search for and performs the search. Write this recursively.
+  # First, check the value at this node. If a node's value matches the target value, return the node.
+  # If not, iterate through the #children and repeat.
+
+  def dfs(target)
+    return self if self.value == target
+    self.children.each do |child|
+      result = child.dfs(target)
+      return result if result
+    end
+    nil
   end
 
 end
