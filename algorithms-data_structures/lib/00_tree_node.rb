@@ -59,13 +59,30 @@ class PolyTreeNode
     nil
   end
 
+  # Write a #bfs(target_value) method to implement breadth first search.
+  # You will use a local Array variable as a queue to implement this.
+  # First, insert the current node (self) into the queue.
+  # Then, in a loop that runs until the array is empty:
+  # Remove the first node from the queue,
+  # Check its value,
+  # Push the node's children to the end of the array.
+  # Prove to yourself that this will check the nodes in the right order. Draw it out. Show this explanation to your TA.
+
+  def bfs(target)
+    queue = []
+    # FIFO -- Array#unshift and Array#pop
+    queue.unshift(self)
+    # (iterating queue's |el| )
+    until queue.empty?
+      # queue.unshift(queue.last.children)
+      queue.last.children.each do |child|
+        queue.unshift(child)
+      end
+      check_node = queue.pop
+      return check_node if check_node.value == target
+    end
+
+    nil
+  end
+
 end
-
-
-# Write a class with four methods:
-
-# A #parent method that returns the node's parent.
-# A #children method that returns an array of children of a node.
-# A #value method that returns the value stored at the node.
-# Write a #parent= method which (1) sets the parent property and (2) adds the node to their parent's array of children (unless we're setting parent to nil).
-# Run bundle exec rspec to run the provided tests. At this point, all the specs for #initialize and most of the specs for #parent= should pass. (We'll get to the other specs soon!)
