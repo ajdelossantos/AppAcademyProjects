@@ -1,3 +1,5 @@
+require 'byebug'
+
 class PolyTreeNode
 
   def initialize(value)
@@ -18,9 +20,33 @@ class PolyTreeNode
     @value
   end
 
-  def parent=
-    # self.parent = (some node)
+  def parent=(node)
+    return nil if node == @parent
+
+    # Removes self from @parent.child
+    unless @parent.nil?
+      @parent.children.delete(self)
+    end
+
+    # Assign parent to node
+
+    @parent = node
+    @parent.children << self unless node.nil?
   end
+
+# These methods should be one- or two-liners that call #parent=.
+
+  def add_child(child_node)
+    child_node.parent = self
+  end
+
+  def remove_child(child_node)
+    raise ArgumentError "That's not a child!" if
+      !self.children.include?(child_node)
+
+    child_node.parent = nil
+  end
+
 end
 
 
