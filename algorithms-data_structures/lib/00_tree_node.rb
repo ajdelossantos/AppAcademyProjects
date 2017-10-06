@@ -74,7 +74,6 @@ class PolyTreeNode
     queue.unshift(self)
     # (iterating queue's |el| )
     until queue.empty?
-      # queue.unshift(queue.last.children)
       queue.last.children.each do |child|
         queue.unshift(child)
       end
