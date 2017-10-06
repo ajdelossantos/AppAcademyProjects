@@ -74,14 +74,15 @@ class Board
     adjacent_move.map { |m| [i+m[0], j+m[1]] }
   end
 
-  def fringe(pos)
-    to_visit = [pos]
-    visited = [pos]
-
-    while to_visit.length > 0
-
-    end
-  end
+  # def fringe(pos)
+  #   to_visit = [pos]
+  #   visited = [pos]
+  #
+  #   while to_visit.length > 0
+  #     #
+  #     #  = to_visit.shift
+  #   end
+  # end
 
   def play(pos)
     @lost = true if self[pos].value == "#"
