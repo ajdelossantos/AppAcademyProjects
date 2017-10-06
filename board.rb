@@ -53,16 +53,33 @@ class Board
 
         unless self[[i,j]].is_bomb?
 
-          adjacent_move =
-            [-1, 0, 1].permutation(2).to_a + [[-1, -1], [1, 1]]
+          adjacents = adjacent_squares([i,j])
 
-          bombs = adjacent_move.select do |m|
-            pos_in_range?([i+m[0], j+m[1]]) && self[[i+m[0], j+m[1]]].is_bomb?
+          bombs = adjacents.select do |pos|
+            self[pos].is_bomb?
           end
 
           self[[i,j]].value = bombs.length
         end
       end
+    end
+  end
+
+  def adjacent_squares(pos)
+    i,j = pos
+    adjacent_move = [-1, 0, 1].permutation(2).to_a + [[-1, -1], [1, 1]]
+    adjacent_move = adjacent_move.select do |m|
+      pos_in_range?([i+m[0], j+m[1]])
+    end
+    adjacent_move.map { |m| [i+m[0], j+m[1]] }
+  end
+
+  def fringe(pos)
+    to_visit = [pos]
+    visited = [pos]
+
+    while to_visit.length > 0
+
     end
   end
 
