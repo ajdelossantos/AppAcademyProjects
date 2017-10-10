@@ -9,7 +9,8 @@ class Piece
 
   def to_s
     # Delimit by " "
-    "#{@color} #{@type}"
+    # "#{@color} #{@type}"
+    "X"
   end
 
   def empty?
