@@ -79,8 +79,10 @@ class Cursor
   def handle_key(key)
     #debugger
     case key
-    when :return || :space
-      return @cursor_pos
+    when :return
+      @cursor_pos
+    when :space
+      @cursor_pos
     when :left
       update_pos(MOVES[key])
     when :right
@@ -101,7 +103,7 @@ class Cursor
     puts ""
     new_pos = [x, y]
     @cursor_pos = new_pos if in_bounds?(new_pos)
-
+    return get_input
   end
 
   def in_bounds?(pos)
