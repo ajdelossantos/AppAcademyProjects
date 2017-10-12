@@ -1,7 +1,8 @@
 class Player
 
-  def initialize(name, hand = nil, pot = nil)
-    @name = name 
+attr_accessor :hand
+  def initialize(name = "hi", hand = [], pot = 0)
+    @name = name
     @hand = hand
     @pot = pot
   end
