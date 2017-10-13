@@ -1,4 +1,10 @@
 div {
+  height: 200px;
+  width: 200px;
+  padding: 50px;
+  border: solid;
+  border-width: 5px;
+  border-color: black;
 }
 
 #first-div {
@@ -9,6 +15,24 @@ div {
   background-color: #ff4136;
 }
 
+#third-div {
+  min-height: 400px;
+}
+
 p {
   background-color: #7fdbff;
+}
+
+.image-1-container {
+  width: 200px;
+  height: 600px;
+  background-color: purple;
+}
+
+.image-2-container {
+  background-color: orange;
+}
+
+#cat_img {
+  width: 100%
 }
