@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users (
   id INTEGER PRIMARY KEY,
   fname TEXT NOT NULL,
-  lname TEXT NOT NULL,
+  lname TEXT NOT NULL
 );
 
 DROP TABLE IF EXISTS questions;
@@ -58,10 +58,27 @@ INSERT INTO
   users(fname, lname)
 VALUES
   ('John', 'Smith'),
-  ('James', 'Santos')
-  ('Tanner', 'Lane')
+  ('James', 'Santos'),
+  ('Tanner', 'Lane');
 
 INSERT INTO
   questions(title, body, user_id)
 VALUES
-  ('im confused', 'plz help', (SELECT id FROM users WHERE fname = 'James'))
+  ('im confused', 'plz help', (SELECT id FROM users WHERE fname='James' AND lname='Santos')),
+  ('Does this work', 'Is this merge sort better than Kelly''s?', 3);
+
+INSERT INTO
+  question_follows(user_id, question_id)
+VALUES
+  (2, 1);
+
+INSERT INTO
+  replies(body, question_id, parent_id, user_id)
+VALUES
+  ('Read the documentation, please.', 1, NULL, 2),
+  ('I can''t read.', 1, 1, 2);
+
+INSERT INTO
+  question_likes(user_id, question_id)
+VALUES
+  (3, 1);
