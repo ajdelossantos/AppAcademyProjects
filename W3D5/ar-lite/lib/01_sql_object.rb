@@ -99,7 +99,7 @@ class SQLObject
 
   def insert
     # ...
-    col_names
+    col_names =
 
     question_marks = (["?"] * (columns.length)).join(",")
 
