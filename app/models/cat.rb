@@ -22,6 +22,12 @@ class Cat < ApplicationRecord
   validates :sex, inclusion: { in: ['M', 'F'],
     message: "Non-binary gender support coming soon(TM)!"}
 
+  has_many :cat_rental_requests,
+    class_name: 'CatRentalRequest',
+    foreign_key: :cat_id,
+    primary_key: :id,
+    dependent: :destroy
+
   def age
     (Time.now.to_date - self.birth_date).to_i/365
   end
