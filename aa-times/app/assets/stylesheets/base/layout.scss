@@ -6,26 +6,88 @@ html {
 }
 
 body {
-	// ...
+	width: 80%;
+  margin: 0 auto;
+  font-family: sans-serif;
+  font-size: 12px;
 }
 
-button {
-	// background-color:
+button.fa {
+	background-color: transparent;
 	// border-color:
-	// color:
-	// font-weight:
-	// padding:
-	// border-radius:
+  // border:
+	color: #000;
+	font-weight: 700;
+	padding: 7px;
+	border-radius: 4px;
 	// transition:
-	// font-family:
+	font-family: sans-serif;
 	// text-transform:
 	// font-size:
 	// text-align:
+  margin-right: 4px;
+  // border: 1px solid #000;
+  max-height: 12px;
 }
 
-button:hover {
-	// background-color:
-	// border-color:
+button.user-action {
+	background-color: $blue;
+	border-color: $dark-blue;
+	color: #fff;
+	font-weight: 700;
+	padding: 7px;
+	border-radius: 4px;
+	// transition:
+	font-family: sans-serif;
+	// text-transform:
+	// font-size:
+	// text-align:
+  margin-right: 4px;
+}
+
+i.fa-nav {
+  padding-right: 10px;
+}
+
+i.fa-cog {
+  // padding: 0;
+  // height: 12px;
+}
+
+#gear-dropdown-btn {
+  background-color: transparent;
+  // border-color:
+  // border:
+  // font-size: 12px;
+  color: #000;
+  font-weight: 700;
+  padding: 7px;
+  padding-top: 3px;
+  padding-bottom: 7px;
+  border-radius: 4px;
+  // transition:
+  font-family: sans-serif;
+  // text-transform:
+  // font-size:
+  // text-align:
+  margin-right: 4px;
+  // border: 1px solid #000;
+  min-height: 16px;
+}
+
+#gear-dropdown-btn:hover {
+	background-color: $light-gray;
+	border-color: $gray;
+}
+
+button.user-action:hover {
+	background-color: $dark-blue;
+	border-color: $darkest-blue;
+}
+
+button.fa:hover {
+	background-color: $light-gray;
+	border-color: $gray;
 }
 
 /*
