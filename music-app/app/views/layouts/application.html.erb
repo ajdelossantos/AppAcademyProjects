@@ -9,6 +9,36 @@
   </head>
 
   <body>
+
+    <header>
+      <nav>
+        <ul>
+          <% if current_user %>
+            <li>
+              Hi, <%= current_user.email %>
+            </li>
+            <br>
+
+            <li>
+              <%= button_to 'Log Out', session_url, method: :delete %>
+          </li>
+          <br>
+          <% else %>
+            <li>
+              <a href="<%= new_session_url %>">Log In</a>
+            </li>
+            <br>
+
+            <li>
+              <a href="<%= new_user_url %>">Sign Up</a>
+            </li>
+            <br>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+
     <%= yield %>
+
   </body>
 </html>
