@@ -5,7 +5,7 @@ const Game = function () {
 };
 
 Game.prototype.addAsteroids = function () {
-
+  
 };
 
 Game.prototype.randomPosition = function () {
