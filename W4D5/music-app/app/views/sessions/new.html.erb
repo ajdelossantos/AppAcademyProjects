@@ -1,0 +1,22 @@
+<h1>Sign-In for Music at a/A!</h1>
+<br>
+
+<% unless flash[:errors].nil? %>
+  <ul>
+    <% flash[:errors].each do |error| %>
+    <li> <%= error %> </li>
+    <% end %>
+  </ul>
+  <br>
+<% end %>
+
+<form action="<%= session_url %>" method="POST">
+  <!--TODO csrf token  -->
+  <label for="email">Email</label>
+  <input type="text" id="email" name="user[email]"value="">
+
+  <label for="password">Password</label>
+  <input type="password" id="password" name="user[password]">
+
+  <button type="submit">Log In</button>
+</form>
