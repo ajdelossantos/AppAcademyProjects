@@ -5,9 +5,9 @@ const Game = function () {
 };
 
 Game.prototype.addAsteroids = function () {
-  
-};
 
+};
+ß
 Game.prototype.randomPosition = function () {
   return [this.DIM_X * Math.random(), this.DIM_Y * Math.random()];
 };
