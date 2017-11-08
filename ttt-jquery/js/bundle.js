@@ -138,7 +138,7 @@ class View {
   }
 
   setupBoard() {
-      const $ul = $('<ul></u>').addClass('grid').css({'list-style': 'none', 'display': 'flex',
+      const $ul = $('<ul></ul>').addClass('grid').css({'list-style': 'none', 'display': 'flex',
     'flex-direction': 'column'});
     $('.ttt').append($ul);
 
