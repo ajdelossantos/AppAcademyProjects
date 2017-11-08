@@ -1,0 +1,25 @@
+/* PHASE 4: Footer */
+.footer {
+  display: flex;
+  /*max-width: 900px;*/
+  justify-content: space-between;
+  align-items: center;
+
+
+}
+
+.footer-copyright {
+  display: flex;
+
+
+}
+
+.footer-links {
+  display: flex;
+
+}
+
+.footer-links li {
+  display: flex;
+
+}
