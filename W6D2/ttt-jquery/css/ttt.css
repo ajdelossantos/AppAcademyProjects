@@ -1,0 +1,28 @@
+h1 {
+  text-align: center;
+}
+
+.square {
+  background-color: #ccc;
+  width: 100px;
+  height:100px;
+  text-align: center;
+}
+
+.square:hover {
+  background-color: yellow;
+}
+
+.filled {
+  background-color: #fff;
+  font: 72px sans-serif;
+  font-weight: 700;
+}
+
+.x {
+  color: rgb(255, 0, 0);
+}
+
+.o {
+  color: rgb(0, 0, 255);
+}
