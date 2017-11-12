@@ -48,12 +48,20 @@ class Clock extends React.Component {
     const meridian = hours > 11 ? "PM" : "AM";
     return (
       <div>
-        <h1>Clock!</h1>
-          <ul>
-            <li>Time: {hoursTwelve(hours)}:
-                {pad(minutes)} {pad(seconds)} {meridian}</li>
-            <li>Date: {this.state.time.toDateString()}</li>
-          </ul>
+        <label htmlFor="clock"><h2>Clock!</h2>
+          <div id="clock" className="clock">
+            <ul>
+              <div>
+                <li>Time: </li>
+                <li>Date: </li>
+              </div>
+              <div>
+                <li>{hoursTwelve(hours)}:{pad(minutes)} {pad(seconds)} {meridian}</li>
+                <li>{this.state.time.toDateString()}</li>
+              </div>
+            </ul>
+          </div>
+        </label>
       </div>
     );
   }
