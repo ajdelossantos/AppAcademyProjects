@@ -8,8 +8,10 @@ class Clock extends React.Component {
       time: new Date()
     };
     this.tick = this.tick.bind(this);
-    this.componentDidMount();
-    this.componentWillUnmount();
+    //IDEA these are automatically called!
+
+    // this.componentDidMount();
+    // this.componentWillUnmount();
   }
 
   tick () {
@@ -25,10 +27,33 @@ class Clock extends React.Component {
   }
 
   render () {
+    const hours = this.state.time.getHours();
+    const minutes = this.state.time.getMinutes();
+    const seconds = this.state.time.getSeconds();
+
+    const pad = (time) => {
+      return time < 10 ? "0".concat(time) : time;
+    };
+
+    const hoursTwelve = (hrs) => {
+      if (hrs === 0) {
+        return 12;
+      } else if (hrs > 12) {
+        return hrs % 12;
+      } else {
+        return hrs;
+      }
+    };
+
+    const meridian = hours > 11 ? "PM" : "AM";
     return (
       <div>
         <h1>Clock!</h1>
-        <p>{this.state.time.toString()}</p>
+          <ul>
+            <li>Time: {hoursTwelve(hours)}:
+                {pad(minutes)} {pad(seconds)} {meridian}</li>
+            <li>Date: {this.state.time.toDateString()}</li>
+          </ul>
       </div>
     );
   }
