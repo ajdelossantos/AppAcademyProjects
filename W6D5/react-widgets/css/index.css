@@ -52,6 +52,24 @@ input[type="submit"] {
  ====================
  */
 
+ #debug-img {
+   height: 500px;
+   width: auto;
+   margin: 0 auto;
+   padding: 50px;
+   border: 5px dashed #ccc;
+   background-color: #aaa;
+ }
+
+ #debug-msg {
+   display: flex;
+   padding: 20px;
+ }
+ #debug-msg p {
+   font-weight: 700;
+   font-size: 54px;
+ }
+
  body, h2 {
   font-family: 'Lato', sans-serif;
  }
