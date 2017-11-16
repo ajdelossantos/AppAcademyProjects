@@ -1,5 +1,5 @@
 import { RECEIVE_ALL_POKEMON } from '../actions/pokemon_actions';
-// import merge from 'lodash/merge';
+import {merge} from 'lodash/merge';
 
 const pokemonReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -9,10 +9,11 @@ const pokemonReducer = (state = {}, action) => {
     case RECEIVE_ALL_POKEMON:
       newState = {};
 
-      Object.keys(action.pokemon).forEach(key => {
-        newState[key] = action.pokemon[key];
-      });
-      return newState;
+      // Object.keys(action.pokemon).forEach(key => {
+      //   newState[key] = action.pokemon[key];
+      // });
+      // return newState;
+      return merge({}, state, action.pokemon);
 
     default:
       return state;

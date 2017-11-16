@@ -1,10 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-// import { selectAllPokemons } from '../reducers/selectors';
+import PokemonIndexContainer from './pokemon/pokemon_index_container';
 
 const Root = ({ store }) => (
   <Provider store={store}>
-    <div>hello</div>
+    <div>
+      <h2>The Pokedex</h2>
+      <PokemonIndexContainer />
+    </div>
+
   </Provider>
 );
 
