@@ -1,0 +1,105 @@
+/* Reset */
+
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  /*
+  Get rid of native styling. Read more here:
+  http://css-tricks.com/almanac/properties/a/appearance/
+  */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+ /*
+ ====================
+ Widgets
+ ====================
+ */
+
+ #debug-img {
+   height: 500px;
+   width: auto;
+   margin: 0 auto;
+   padding: 50px;
+   border: 5px dashed #ccc;
+   background-color: #aaa;
+ }
+
+ #debug-msg {
+   display: flex;
+   padding: 20px;
+ }
+ #debug-msg p {
+   font-weight: 700;
+   font-size: 54px;
+ }
+
+ body, h2 {
+  font-family: 'Lato', sans-serif;
+ }
+
+ h2 {
+   display: flex;
+   justify-content: center;
+   margin: 0 auto;
+   font-weight: 700;
+   font-size: 36px;
+   padding: 20px;
+   margin-bottom: 10px;
+ }
+
+.clock {
+  font-size: 24px;
+  color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #0000E0;
+  margin: 0 auto;
+  padding: 20px 50px;
+  max-width: 500px;
+}
+
+.clock ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clock li {
+  padding: 10px 0;
+}
