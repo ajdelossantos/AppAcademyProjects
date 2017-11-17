@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
+import Root from './components/root';
 
 //TODO Remove after debugging
 import { selectAllPokemons } from './reducers/selectors';
-import { fetchAllPokemon } from './util/api_util';
-import { receiveAllPokemon, requestAllPokemon } from './actions/pokemon_actions';
-import Root from './components/root';
+import { fetchAllPokemon, fetchSinglePokemon } from './util/api_util';
+import {
+  receiveAllPokemon,
+  requestAllPokemon,
+  receiveSinglePokemon,
+  requestSinglePokemon,
+} from './actions/pokemon_actions';
+
 
 const debugFcts = (store) => {
   window.selectAllPokemons = selectAllPokemons;
@@ -15,6 +21,9 @@ const debugFcts = (store) => {
   window.fetchAllPokemon = fetchAllPokemon;
   window.receiveAllPokemon = receiveAllPokemon;
   window.requestAllPokemon = requestAllPokemon;
+  window.fetchSinglePokemon = fetchSinglePokemon;
+  window.receiveSinglePokemon = receiveSinglePokemon;
+  window.requestSinglePokemon = requestSinglePokemon;
 };
 
 document.addEventListener('DOMContentLoaded', () => {

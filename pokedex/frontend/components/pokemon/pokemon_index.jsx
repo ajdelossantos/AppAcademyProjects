@@ -1,4 +1,5 @@
 import React from 'react';
+import PokemonIndexItem from './pokemon_index_item';
 
 class PokemonIndex extends React.Component {
   componentDidMount () {
@@ -6,15 +7,14 @@ class PokemonIndex extends React.Component {
   }
 
   render () {
+    const pokemonIndex = this.props.pokemon.map(poke =>
+      <PokemonIndexItem key={poke.id} pokemon={poke} />
+    );
 
     return (
       <div>
         <ul>
-        {
-          this.props.pokemon.map((poke) =>
-          <li key={poke.id}> {poke.name} <img className="img" src={poke.image_url}></img></li>
-          )
-        }
+          {pokemonIndex}
         </ul>
       </div>
   );
