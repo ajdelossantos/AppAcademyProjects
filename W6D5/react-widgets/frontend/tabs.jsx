@@ -5,21 +5,26 @@ class Tabs extends React.Component {
   constructor (props) {
     super(props);
     this.state = { index: 0 };
+    this.selectTab = this.selectTab.bind(this);
+  }
+
+  selectTab(num) {
+    this.setState({ index: num });
   }
 
   render () {
-    let stuff = this.props.files;
+    let selectedPane = this.props.files[this.state.index]; // is an array, takes brackets
+    let allPanes = this.props.files;
 
     return (
     <div>
       <ul>
-      {stuff.map(
+      {allPanes.map(
         (el, idx) => (<li key={ idx }><h3>{ el.title }</h3></li>)
       )}
       </ul>
-      {stuff.map(
-        (el, idx) => (<article>{ el.content }</article>)
-      )}
+        <article>{ selectedPane.content }</article>
+
     </div>
     );
   }
