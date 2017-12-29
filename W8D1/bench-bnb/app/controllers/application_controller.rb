@@ -4,12 +4,16 @@ class ApplicationController < ActionController::Base
   helper_method :signed_in?, :current_user
 
   private
+
   def current_user
     return nil unless session[:session_token]
     @current_user ||= User.find_by(session_token: session[:session_token])
   end
 
   def sign_in!(user)
+    # new!
+    user.reset_session_token!
+
     @current_user = user
     session[:session_token] = user.reset_session_token!
   end
@@ -17,6 +21,10 @@ class ApplicationController < ActionController::Base
   def sign_out!
     current_user.reset_session_token!
     session[:session_token] = nil
+
+    # new!
+    @current_user = nil
+
   end
 
   def signed_in?
@@ -24,6 +32,9 @@ class ApplicationController < ActionController::Base
   end
 
   def require_signed_in?
-    # some redirect unless signed_in?...
+    # new!
+    unless current_user
+      render json:  { base: ['Invalid Credentials'] }, status: 401
+    end
   end
 end

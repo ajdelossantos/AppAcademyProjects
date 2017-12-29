@@ -4,10 +4,9 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       sign_in!(@user)
-      # redirect
+      render "api/users/show"
     else
-      flash.now[:errors] = @user.error.full_messages
-      # re-render
+      render json: @user.errors.full_messages, status: 422
     end
   end
 
