@@ -152,7 +152,7 @@ end
 
 ```javascript
 let iterative_1 = (n, m) => {
-  let notes = ["do", "rei", "mi", "fa", "so", "la", "ti", "do"];
+  let notes = ["do", "re", "mi", "fa", "sol", "la", "ti", "do"];
 
   for (var i = 0; i < n; i++) {
     for (var j = 0; j < m; j++) {
@@ -162,3 +162,51 @@ let iterative_1 = (n, m) => {
   }
 };
 ```
+
+def rec_mystery(n)
+return n if n < 5
+
+rec_mystery(n - 5)
+end
+
+O(n/5) => O(n) for n >= 5
+O(1) for n < 5
+NB: n < 0 will always return n
+NB2: call it mod_5_rec
+
+def rec_mystery_2(n)
+return 0 if n == 0
+
+rec_mystery_2(n/5) + 1
+end
+
+returns 0 or 1
+O(log(n)) (base 5)
+
+def rec_mystery_3(n, m, o)
+if n <= 0
+printf("%d, %d\n", m, o)
+else
+rec_mystery_3(n-1, m+1, o)
+rec_mystery_3(n-1, m, o+1)
+end
+end
+
+O(k^n)
+
+```javascript
+Array.prototype.grabBag = function() {
+  if (this.length === 0) {
+    return [[]];
+  }
+  let bag = this.slice(this.length - 1).grabBag();
+  return bag.concat(
+    bag.map(function(el) {
+      return el + [this.length - 1];
+    })
+  );
+};
+```
+
+const arr = [1,2,3]
+arr.grabBag();
