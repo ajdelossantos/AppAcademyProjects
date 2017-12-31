@@ -151,7 +151,7 @@ end
 #### 1.
 
 ```javascript
-let iterative_1 = (n, m) => {
+const iterative_1 = (n, m) => {
   let notes = ["do", "re", "mi", "fa", "sol", "la", "ti", "do"];
 
   for (var i = 0; i < n; i++) {
@@ -162,6 +162,35 @@ let iterative_1 = (n, m) => {
   }
 };
 ```
+
+* NB: m specifies the length of the subset of 'notes' to print out, n specifies how many times to print out the a subset of m length is printed out
+* time complexity is dependent on both n and m
+* 0(n \* m) => 0(n), the function grows in linear time thanks t the behavior described in the NB above
+* this function takes up n \* m space, in addition to the arguments and the notes array
+
+#### 2.
+
+```javascript
+const iterative_2 = n => {
+  let notes = ["do", "re", "mi", "fa", "sol", "la", "ti", "do"];
+  let result = [];
+  for (var i = 0; i < n; i++) {
+    for (var j = i; j >= 0; j--) {
+      let position = (i + j) % 8;
+      result.push(notes[position]);
+    }
+  }
+  return result.length;
+};
+```
+
+* dependent on n, and appears to be related to pascal's triangle, given the resulting array's length
+* O(n^2), since for every i up until n, it doubles back
+
+#### 3.
+
+* the inputs for n and m get assigned to the vars bigger and smaller, so their order doesn't matter anymore
+* O(n^2), since at the worst case, it still displays the 'pascal's triangle' behavior when n == m
 
 def rec_mystery(n)
 return n if n < 5
@@ -194,19 +223,26 @@ end
 
 O(k^n)
 
-```javascript
-Array.prototype.grabBag = function() {
-  if (this.length === 0) {
-    return [[]];
-  }
-  let bag = this.slice(this.length - 1).grabBag();
-  return bag.concat(
-    bag.map(function(el) {
-      return el + [this.length - 1];
-    })
-  );
-};
-```
+### Grab Bag
 
-const arr = [1,2,3]
-arr.grabBag();
+* n is dependednt on the size of the array
+* 0(k^n); this problem resembles 'subsets', so the returned array will have 2^n elements in it
+* space complexity is not great, as each element of the returned array is an array itself that will contains, at worst, n elements
+
+const iterative_3 = (n, m) => {
+let notes = ["a", "b", "b", "d", "e", "f", "g", "h"];
+
+let bigger = n > m ? n : m;
+let smaller = n <= m ? n : m;
+
+let results = []
+
+for (var i = 0; i < smaller; i++) {
+for (var j = i; j < bigger; j++) {
+let position = (i + j) % 8;
+results.push(notes[position]);
+}
+}
+console.log(results.length);
+return results;
+};
