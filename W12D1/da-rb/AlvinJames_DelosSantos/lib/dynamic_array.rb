@@ -23,7 +23,7 @@ class DynamicArray
   
   # O(1)
   def pop
-    check_length(@length)
+    check_length
     last_idx = @length - 1
     last = @store[last_idx]
 
@@ -46,7 +46,7 @@ class DynamicArray
 
   # O(n): has to shift over all the elements.
   def shift
-    check_length(@length)
+    check_length
     
     first = @store[0]
     temp_arr = StaticArray.new(@capacity)
@@ -90,7 +90,7 @@ class DynamicArray
     raise "index out of bounds" if index >= @length
   end
 
-  def check_length(length)
+  def check_length
     raise "index out of bounds" if @length == 0
   end
 
@@ -105,6 +105,5 @@ class DynamicArray
       @store[i] = temp_arr[i]
       i += 1
     end
-
   end
 end
