@@ -9,21 +9,35 @@
 require_relative 'ring_buffer'
 
 class QueueWithMax
-  attr_accessor :store
+  attr_accessor :store, :max
 
   def initialize
+    @store = RingBuffer.new
+    @max_store = RingBuffer.new
   end
 
   def enqueue(val)
+    @store.unshift(val)
+    if @max_store.length == 0 || @max_store[@max_store.length - 1] < val
+      @max_store = [val]
+    else
+      @max_store.push(val)
+    end
   end
 
   def dequeue
+    popped = @store.pop
+    if @max_store[0] == popped
+      @max_store.shift
+    end
   end
 
   def max
+    @max_store[0]
   end
 
   def length
+    @store.length
   end
 
 end
