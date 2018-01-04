@@ -7,5 +7,5 @@ def can_string_be_palindrome?(string)
   odds = 0
   count.each { |_letter, count| odds += 1 if count.odd? }
 
-  odds > 1 ? false : true
+  odds <= 1
 end
