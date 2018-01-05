@@ -5,6 +5,7 @@ class QuickSort
   # Not in-place. Uses O(n) memory.
   def self.sort1(array, &prc)
     prc ||= proc { |x, y| x <=> y }
+
     return array if array.length <= 1
 
     pivot = array.first
@@ -21,16 +22,19 @@ class QuickSort
     return array if length <= 1
 
     pivot_idx = self.partition(array, start, length, &prc)
-    self.sort2!(array, start, pivot_idx - start, &prc)
-    self.sort2!(array, pivot_idx + 1, length - pivot_idx - 1, &prc)
+    left_partition_len = pivot_idx - start
+    right_partition_len = length - pivot_idx - 1
+
+    self.sort2!(array, start, left_partition_len, &prc)
+    self.sort2!(array, (pivot_idx + 1), right_partition_len, &prc)
   end
 
   def self.partition(array, start, length, &prc)
     prc ||= proc { |x, y| x <=> y }
 
-    range = (start + 1...start + length)
-    pivot_el = array[start]
     pivot_idx = start
+    pivot_el = array[start]
+    range = (start + 1...start + length)
 
     range.each do |idx|
       if prc.call(pivot_el, array[idx]) > 0
@@ -38,8 +42,8 @@ class QuickSort
         pivot_idx += 1
       end
     end
+    
     array[pivot_idx], array[start] = array[start], array[pivot_idx]
-
     pivot_idx
   end
 end
