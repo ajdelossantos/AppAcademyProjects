@@ -22,4 +22,4 @@ What is the time complexity of HeapSort? What is the space complexity?
 
 ## K-largest elements
 
-Let's use our BinaryMinHeap to solve a whiteboarding-style question. Given an `array` and an integer `k`, return the k-largest elements in `O(k*log(n))` time.
+Let's use our BinaryMinHeap to solve a whiteboarding-style question. Given an `array` and an integer `k`, return the k-largest elements in `O(k + (n - k) * log(n))` time.
