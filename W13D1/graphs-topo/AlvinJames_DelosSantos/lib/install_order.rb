@@ -13,16 +13,15 @@ require_relative 'topological_sort'
 def install_order(arr)
 
   vertices = (1..arr.flatten.max).to_a.map { |id| Vertex.new(id) }
-  # puts vertices
 
   arr.each do |tuple|
     v1_idx, v2_idx = find_vertex_idx(vertices, tuple[0]), find_vertex_idx(vertices, tuple[1])
     v1, v2 = vertices[v1_idx], vertices[v2_idx]
-
-    edge = Edge.new(v2, v1)
+    Edge.new(v2, v1)
   end
 
   sorted = topological_sort(vertices)
+  
   sorted.map { |v| v.value }
 end
 
