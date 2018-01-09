@@ -11,7 +11,6 @@ require_relative 'graph'
 require_relative 'topological_sort'
 
 def install_order(arr)
-
   vertices = (1..arr.flatten.max).to_a.map { |id| Vertex.new(id) }
 
   arr.each do |tuple|
@@ -21,7 +20,7 @@ def install_order(arr)
   end
 
   sorted = topological_sort(vertices)
-  
+
   sorted.map { |v| v.value }
 end
 
