@@ -31,6 +31,10 @@ class Vertex
   def traverse_in
     @in_edges.map!(:from_vertex)
   end
+
+  def to_s
+    "val: #{@value} in: #{@in_edges.length} out: #{@out_edges.length}"
+  end
 end
 
 class Edge
@@ -49,6 +53,10 @@ class Edge
   def destroy!
     @from_vertex.remove_out_edge!(self)
     @to_vertex.remove_in_edge!(self)
-    @from_vertex, @to_vertex = nil
+    @from_vertex, @to_vertex = nil, nil
+  end
+
+  def to_s
+    "=>[to #{@to_vertex.value} | from #{@from_vertex.value}]"
   end
 end

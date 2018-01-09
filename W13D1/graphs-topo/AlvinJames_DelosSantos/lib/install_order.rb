@@ -7,8 +7,12 @@
 
 # Import any files you need to
 
-
+require_relative 'graph'
+require_relative 'topological_sort'
 
 def install_order(arr)
+
+  uniq_ids = arr.flatten.uniq
+  p uniq_ids
 
 end
